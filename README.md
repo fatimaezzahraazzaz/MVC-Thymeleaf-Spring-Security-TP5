@@ -32,11 +32,11 @@ Créer une application Web complète avec les technologies suivantes :
 2. **Création de l'entité `Product`**
 3. **Création de `ProductRepository`**
 4. **Création des pages Thymeleaf + contrôleurs Spring MVC** :
-   - ✅ Liste des produits
-   - ✅ Suppression d’un produit
-   - ✅ Ajout d’un produit avec validation
-   - ✅ Édition et mise à jour d’un produit
-   - ✅ Mise en page avec layout Thymeleaf + Bootstrap
+   -  Liste des produits
+   - Suppression d’un produit
+   - Ajout d’un produit avec validation
+   - Édition et mise à jour d’un produit
+   - Mise en page avec layout Thymeleaf + Bootstrap
 7. **Sécurisation avec Spring Security**
    - Utilisateurs en mémoire : `user1`,`user2`,`admin`
    - Accès restreint par rôle
