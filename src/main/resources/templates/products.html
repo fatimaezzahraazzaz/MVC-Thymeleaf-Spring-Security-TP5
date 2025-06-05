@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      xmlns:sec="http://www.thymeleaf.org/extras/spring-security"
+      layout:decorate="layout1">
+<head>
+    <meta charset="UTF-8">
+    <title>Products</title>
+    <link rel="stylesheet" type="text/css" href="/webjars/bootstrap/5.3.6/css/bootstrap.min.css"/>
+</head>
+<body>
+<div class="p-3" layout:fragment="content">
+    <div class="p-3" sec:authorize="hasRole('ADMIN')" >
+        <a class="btn btn-primary" th:href="@{/admin/newProduct}">New Product</a>
+    </div>
+    <table class="table table-striped">
+        <thead>
+        <tr>
+            <th>ID</th>
+            <th>Nom</th>
+            <th>Prix</th>
+            <th>Quantité</th>
+            <th>Actions</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="p : ${productsList}">
+            <td th:text="${p.id}"></td>
+            <td th:text="${p.name}"></td>
+            <td th:text="${p.price}"></td>
+            <td th:text="${p.quantity}"></td>
+            <td sec:authorize="hasRole('ADMIN')">
+                <div class="d-flex gap-2">
+                    <a class="btn btn-warning" th:href="@{/admin/editProduct(id=${p.id})}">Edit</a>
+                    <form method="post" th:action="@{/admin/delete(id=${p.id})}">
+                        <button type="submit" class="btn btn-danger">Delete</button>
+                    </form>
+                </div>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+<script src="/webjars/bootstrap/5.3.6/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
